@@ -10,12 +10,7 @@ fs.readdirSync(__dirname).forEach(function (file) {
     sources[file] = fs.readFileSync(path.join(__dirname, file)).toString();
 });
 
-combined = combine(
-    sources['template.html'],
-    sources['1.html'],
-    sources['2.html'],
-    sources['3.html']
-);
+combined = combine(sources['template.html'], sources['1.html'], sources['2.html'], sources['3.html']);
 
 console.log(combined);
 
