@@ -41,7 +41,15 @@ describe( 'DOM Combiner', function() {
 		} );
 	} );
 
-	it( 'should combine sources', function() {
-		console.log( combine( sources.template, sources[ 1 ] ) );
+	it( 'should not parse script contents', function() {
+		console.log(combine(sources.template, sources[2]));
 	} );
+
+	// it( 'should not parse script contents', function() {
+	// 	expect(combine(sources.template, sources[2])).to.equal(sources['tpl.result']);
+	// } );
+
+	// it( 'should not parse textarea contents', function() {
+	// 	expect(combine(sources.template, sources[1])).to.equal(sources['textarea.result']);
+	// } );
 } );
