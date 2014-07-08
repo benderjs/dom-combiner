@@ -10,6 +10,12 @@ var fs = require( 'fs' ),
 describe( 'DOM Combiner', function() {
 	var sources = {};
 
+	function removeNewLines( str ) {
+		return str
+			.replace( /\r/g, '' )
+			.replace( /\n/g, '' );
+	}
+
 	before( function( done ) {
 		fs.readdir( __dirname, function( err, files ) {
 			if ( err ) {
@@ -42,14 +48,24 @@ describe( 'DOM Combiner', function() {
 	} );
 
 	it( 'should not parse script contents', function() {
-		console.log(combine(sources.template, sources[2]));
+		expect(
+			removeNewLines(
+				combine( sources.template, sources[ 2 ] )
+			)
+		).to.equal(
+			removeNewLines( sources[ 'tpl.result' ] )
+		);
 	} );
 
-	// it( 'should not parse script contents', function() {
-	// 	expect(combine(sources.template, sources[2])).to.equal(sources['tpl.result']);
-	// } );
-
-	// it( 'should not parse textarea contents', function() {
-	// 	expect(combine(sources.template, sources[1])).to.equal(sources['textarea.result']);
-	// } );
+	it( 'should not parse textarea contents', function() {
+		expect(
+			removeNewLines(
+				combine( sources.template, sources[ 1 ] )
+			)
+		).to.equal(
+			removeNewLines(
+				sources[ 'textarea.result' ]
+			)
+		);
+	} );
 } );
