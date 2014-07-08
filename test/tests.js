@@ -68,4 +68,28 @@ describe( 'DOM Combiner', function() {
 			)
 		);
 	} );
+
+	it( 'should merge head with template', function() {
+		expect(
+			removeNewLines(
+				combine( sources.template, sources[ 3 ] )
+			)
+		).to.equal(
+			removeNewLines(
+				sources[ 'head.result' ]
+			)
+		);
+	} );
+
+	it( 'should merge body with template', function() {
+		expect(
+			removeNewLines(
+				combine( sources.template, sources[ 4 ] )
+			)
+		).to.equal(
+			removeNewLines(
+				sources[ 'body.result' ]
+			)
+		);
+	} );
 } );
