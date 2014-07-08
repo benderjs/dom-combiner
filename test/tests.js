@@ -10,10 +10,8 @@ var fs = require( 'fs' ),
 describe( 'DOM Combiner', function() {
 	var sources = {};
 
-	function removeNewLines( str ) {
-		return str
-			.replace( /\r/g, '' )
-			.replace( /\n/g, '' );
+	function removeWhiteSpaces( str ) {
+		return str.replace( /(\r|\n|\t)/g, '' );
 	}
 
 	before( function( done ) {
@@ -47,48 +45,72 @@ describe( 'DOM Combiner', function() {
 		} );
 	} );
 
-	it( 'should not parse script contents', function() {
+	it( 'should not parse nor modify script contents', function() {
 		expect(
-			removeNewLines(
-				combine( sources.template, sources[ 2 ] )
+			removeWhiteSpaces(
+				combine( sources.template, sources.tpl )
 			)
 		).to.equal(
-			removeNewLines( sources[ 'tpl.result' ] )
+			removeWhiteSpaces( sources[ 'tpl.result' ] )
 		);
 	} );
 
-	it( 'should not parse textarea contents', function() {
+	it( 'should not parse nor modify textarea contents', function() {
 		expect(
-			removeNewLines(
-				combine( sources.template, sources[ 1 ] )
+			removeWhiteSpaces(
+				combine( sources.template, sources.textarea )
 			)
 		).to.equal(
-			removeNewLines(
+			removeWhiteSpaces(
 				sources[ 'textarea.result' ]
 			)
 		);
 	} );
 
-	it( 'should merge head with template', function() {
+	it( 'should merge head element with template', function() {
 		expect(
-			removeNewLines(
-				combine( sources.template, sources[ 3 ] )
+			removeWhiteSpaces(
+				combine( sources.template, sources.head )
 			)
 		).to.equal(
-			removeNewLines(
+			removeWhiteSpaces(
 				sources[ 'head.result' ]
 			)
 		);
 	} );
 
-	it( 'should merge body with template', function() {
+	it( 'should merge body element with template', function() {
 		expect(
-			removeNewLines(
-				combine( sources.template, sources[ 4 ] )
+			removeWhiteSpaces(
+				combine( sources.template, sources.body )
 			)
 		).to.equal(
-			removeNewLines(
+			removeWhiteSpaces(
 				sources[ 'body.result' ]
+			)
+		);
+	} );
+
+	it( 'should override template\'s doctype', function() {
+		expect(
+			removeWhiteSpaces(
+				combine( sources.template, sources.doctype )
+			)
+		).to.equal(
+			removeWhiteSpaces(
+				sources[ 'doctype.result' ]
+			)
+		);
+	} );
+
+	it( 'should override meta tag\'s value', function() {
+		expect(
+			removeWhiteSpaces(
+				combine( sources.template, sources.meta )
+			)
+		).to.equal(
+			removeWhiteSpaces(
+				sources[ 'meta.result' ]
 			)
 		);
 	} );
