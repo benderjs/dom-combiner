@@ -114,4 +114,16 @@ describe( 'DOM Combiner', function() {
 			)
 		);
 	} );
+
+	it( 'should override title tag\'s value', function() {
+		expect(
+			removeWhiteSpaces(
+				combine( sources.template, sources.title )
+			)
+		).to.equal(
+			removeWhiteSpaces(
+				sources[ 'title.result' ]
+			)
+		);
+	} );
 } );
