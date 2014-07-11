@@ -10,6 +10,9 @@
 		"type": "git",
 		"url": "http://github.com/benderjs/dom-combiner.git"
 	},
+	"bugs": {
+		"url": "https://github.com/benderjs/dom-combiner/issues"
+	},
 	"author": "CKSource (http://cksource.com/)",
 	"license": "MIT",
 	"dependencies": {
