@@ -45,85 +45,35 @@ describe( 'DOM Combiner', function() {
 		} );
 	} );
 
+	function checkEqual( a, b ) {
+		expect( removeWhiteSpaces( a ) ).to.equal( removeWhiteSpaces( b ) );
+	}
+
 	it( 'should not parse nor modify script contents', function() {
-		expect(
-			removeWhiteSpaces(
-				combine( sources.template, sources.tpl )
-			)
-		).to.equal(
-			removeWhiteSpaces( sources[ 'tpl.result' ] )
-		);
+		checkEqual( combine( sources.template, sources.tpl ), sources[ 'tpl.result' ] );
 	} );
 
 	it( 'should not parse nor modify textarea contents', function() {
-		expect(
-			removeWhiteSpaces(
-				combine( sources.template, sources.textarea )
-			)
-		).to.equal(
-			removeWhiteSpaces(
-				sources[ 'textarea.result' ]
-			)
-		);
+		checkEqual( combine( sources.template, sources.textarea ), sources[ 'textarea.result' ] );
 	} );
 
 	it( 'should merge head element with template', function() {
-		expect(
-			removeWhiteSpaces(
-				combine( sources.template, sources.head )
-			)
-		).to.equal(
-			removeWhiteSpaces(
-				sources[ 'head.result' ]
-			)
-		);
+		checkEqual( combine( sources.template, sources.head ), sources[ 'head.result' ] );
 	} );
 
 	it( 'should merge body element with template', function() {
-		expect(
-			removeWhiteSpaces(
-				combine( sources.template, sources.body )
-			)
-		).to.equal(
-			removeWhiteSpaces(
-				sources[ 'body.result' ]
-			)
-		);
+		checkEqual( combine( sources.template, sources.body ), sources[ 'body.result' ] );
 	} );
 
 	it( 'should override template\'s doctype', function() {
-		expect(
-			removeWhiteSpaces(
-				combine( sources.template, sources.doctype )
-			)
-		).to.equal(
-			removeWhiteSpaces(
-				sources[ 'doctype.result' ]
-			)
-		);
+		checkEqual( combine( sources.template, sources.doctype ), sources[ 'doctype.result' ] );
 	} );
 
 	it( 'should override meta tag\'s value', function() {
-		expect(
-			removeWhiteSpaces(
-				combine( sources.template, sources.meta )
-			)
-		).to.equal(
-			removeWhiteSpaces(
-				sources[ 'meta.result' ]
-			)
-		);
+		checkEqual( combine( sources.template, sources.meta ), sources[ 'meta.result' ] );
 	} );
 
 	it( 'should override title tag\'s value', function() {
-		expect(
-			removeWhiteSpaces(
-				combine( sources.template, sources.title )
-			)
-		).to.equal(
-			removeWhiteSpaces(
-				sources[ 'title.result' ]
-			)
-		);
+		checkEqual( combine( sources.template, sources.title ), sources[ 'title.result' ] );
 	} );
 } );
