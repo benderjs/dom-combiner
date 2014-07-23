@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/benderjs/dom-combiner.svg?branch=master)](https://travis-ci.org/benderjs/dom-combiner)
+
 dom-combiner
 ============
 
