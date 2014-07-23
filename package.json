@@ -4,7 +4,7 @@
 	"description": "Node.js DOM combiner",
 	"main": "lib/index.js",
 	"scripts": {
-		"test": "mocha -R list --check-leaks"
+		"test": "jshint lib/ test/tests.js && mocha -R list --check-leaks"
 	},
 	"repository": {
 		"type": "git",
@@ -21,7 +21,8 @@
 		"parse5": "1.0.0"
 	},
 	"devDependencies": {
-		"mocha": "~1.20.1",
-		"chai": "~1.9.1"
+		"chai": "~1.9.1",
+		"jshint": "^2.5.2",
+		"mocha": "~1.20.1"
 	}
 }
