@@ -81,4 +81,8 @@ describe( 'DOM Combiner', function() {
 	it( 'should override title tag\'s value', function() {
 		checkEqual( combine( sources.template, sources.title ), sources[ 'title.result' ] );
 	} );
+
+	it( 'should not evaluate escaped characters', function() {
+		checkEqual( combine( sources.template, sources.escape ), sources[ 'escape.result' ] );
+	} );
 } );
