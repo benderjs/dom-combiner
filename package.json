@@ -17,14 +17,14 @@
 	"author": "CKSource (http://cksource.com/)",
 	"license": "MIT",
 	"dependencies": {
-		"domutils": "~1.5.0",
-		"lodash": "~2.4.1",
+		"domutils": "~1.7.0",
+		"lodash": "~4.17.14",
 		"parse5": "1.0.0"
 	},
 	"devDependencies": {
-		"chai": "~1.9.1",
-		"jscs": "^1.8.0",
-		"jshint": "^2.5.2",
-		"mocha": "~1.20.1"
+		"chai": "~4.2.0",
+		"jscs": "^3.0.7",
+		"jshint": "^2.10.2",
+		"mocha": "~6.1.4"
 	}
 }
